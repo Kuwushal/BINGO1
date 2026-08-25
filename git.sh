@@ -129,7 +129,7 @@ cmd_init() {
             read -rp "GitHub repo '$name' already exists. Use it as origin? [Y/n]: " use_existing
             use_existing="${use_existing:-Y}"
             if [[ "$use_existing" =~ ^[Yy]$ ]]; then
-                git remote add origin "git@github.com:$(gh api user --jq .login)/$name.git"
+                git remote add origin "https://github.com/$(gh api user --jq .login)/$name.git"
             else
                 echo "Aborted."
                 exit 0
